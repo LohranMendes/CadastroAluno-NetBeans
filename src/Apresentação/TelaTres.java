@@ -57,6 +57,7 @@ public class TelaTres extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         tdfTel = new javax.swing.JFormattedTextField();
         btnInserir = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -144,7 +145,10 @@ public class TelaTres extends javax.swing.JDialog {
         });
         getContentPane().add(btnInserir, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, 108, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Apresentação/Imagens/723.444.jpg"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Apresentação/Imagens/download (1).png"))); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, -1, -1));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Apresentação/Imagens/Plano de Fundo.jpg"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 420));
 
         pack();
@@ -242,6 +246,7 @@ public class TelaTres extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JFormattedTextField tdfCPF;
     private javax.swing.JFormattedTextField tdfData;
     private javax.swing.JTextField tdfIdade;

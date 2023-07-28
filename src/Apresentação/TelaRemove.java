@@ -52,7 +52,7 @@ public class TelaRemove extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 32)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Deseja Remover um aluno?");
+        jLabel1.setText("Deseja remover um aluno?");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 530, 40));
         getContentPane().add(tdfBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 370, -1));
 
@@ -61,6 +61,7 @@ public class TelaRemove extends javax.swing.JDialog {
         jLabel2.setText("Digite o número da matrícula a remover");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
+        btnRemove.setFont(new java.awt.Font("Segoe UI Black", 3, 12)); // NOI18N
         btnRemove.setText("Remover");
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,15 +70,16 @@ public class TelaRemove extends javax.swing.JDialog {
         });
         getContentPane().add(btnRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, -1, -1));
 
+        btnVoltar.setFont(new java.awt.Font("Segoe UI Black", 3, 12)); // NOI18N
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, -1, -1));
+        getContentPane().add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Apresentação/Imagens/723.444.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Apresentação/Imagens/Plano de Fundo.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 180));
 

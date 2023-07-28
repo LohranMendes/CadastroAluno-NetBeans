@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 public class TelaB extends javax.swing.JDialog {
 
     ControleAlunos ca;
+
     /**
      * Creates new form TelaB
      */
@@ -24,36 +25,80 @@ public class TelaB extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
-    
-     public TelaB(java.awt.Frame parent, boolean modal, ControleAlunos ca) {
+
+    public TelaB(java.awt.Frame parent, boolean modal, ControleAlunos ca) {
         super(parent, modal);
         this.ca = ca;
         initComponents();
         exibeInformacoes();
     }
-     
-     private void exibeInformacoes(){
-         ArrayList<Aluno> a = ca.retornarTodos();
-        
-         String busca = ca.getBusca();
-         
-          for (int i = 0; i < a.size() && a.get(i) != null; i++){
-              if(busca.equals(a.get(i).getMatricula())){
-                  SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-                  tdfNome.setText(a.get(i).getNome());
-                  tdfMat.setText(a.get(i).getMatricula());
-                  tdfTel.setText(a.get(i).getTelefone());
-                  tdfIdade.setText(a.get(i).getIdade());
-                  tdfCPF.setText(a.get(i).getCPF());
-                  tdfData.setText(formato.format(a.get(i).getData()));
-                  JOptionPane.showMessageDialog(null, "Numero pesquisado com sucesso.");
-              } else {
-                  JOptionPane.showMessageDialog(null, "Numero pesquisado falhou.");
-              }
-          }
-     }
-    
-    
+
+    private void exibeInformacoes() {
+        ArrayList<Aluno> a = ca.retornarTodos();
+
+        String busca = ca.getBusca();
+
+        if (a.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Não há alunos cadastrados.");
+        } 
+        else {
+            for (int i = 0; i < a.size() && a.get(i) != null; i++) {
+                if (busca.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Matricula inválida.");
+                    tdfMat.requestFocus();
+                    break;
+                } 
+                else {
+                    if (a.size() == 1) {
+                        if (a.get(0).getMatricula().equals(busca)) {
+                            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                            tdfNome.setText(a.get(i).getNome());
+                            tdfMat.setText(a.get(i).getMatricula());
+                            tdfTel.setText(a.get(i).getTelefone());
+                            tdfIdade.setText(a.get(i).getIdade());
+                            tdfCPF.setText(a.get(i).getCPF());
+                            tdfData.setText(formato.format(a.get(i).getData()));
+                            JOptionPane.showMessageDialog(null, "Numero pesquisado com sucesso.");
+                            break;
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Numero pesquisado falhou.");
+                            break;
+                        }
+                    }
+                    if (a.size() > 1) {
+                        if (a.get(0).getMatricula().equals(busca)) {
+                            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                            tdfNome.setText(a.get(i).getNome());
+                            tdfMat.setText(a.get(i).getMatricula());
+                            tdfTel.setText(a.get(i).getTelefone());
+                            tdfIdade.setText(a.get(i).getIdade());
+                            tdfCPF.setText(a.get(i).getCPF());
+                            tdfData.setText(formato.format(a.get(i).getData()));
+                            JOptionPane.showMessageDialog(null, "Numero pesquisado com sucesso.");
+                            break;
+                        } else {
+                            if (ca.buscaMat(busca, ca)) {
+                                int pos = ca.getNum();
+                                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                                tdfNome.setText(a.get(pos).getNome());
+                                tdfMat.setText(a.get(pos).getMatricula());
+                                tdfTel.setText(a.get(pos).getTelefone());
+                                tdfIdade.setText(a.get(pos).getIdade());
+                                tdfCPF.setText(a.get(pos).getCPF());
+                                tdfData.setText(formato.format(a.get(pos).getData()));
+                                JOptionPane.showMessageDialog(null, "Numero pesquisado com sucesso.");
+                                break;
+                            } else {
+
+                                JOptionPane.showMessageDialog(null, "Numero pesquisado falhou.");
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -80,6 +125,7 @@ public class TelaB extends javax.swing.JDialog {
         tdfCPF = new javax.swing.JFormattedTextField();
         jLabel8 = new javax.swing.JLabel();
         tdfTel = new javax.swing.JFormattedTextField();
+        jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
         jTextField2.setText("jTextField1");
@@ -92,7 +138,7 @@ public class TelaB extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Aluno");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 130, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -168,7 +214,10 @@ public class TelaB extends javax.swing.JDialog {
         });
         getContentPane().add(tdfTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 232, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Apresentação/Imagens/723.444.jpg"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Apresentação/Imagens/download (1).png"))); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, -1, -1));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Apresentação/Imagens/Plano de Fundo.jpg"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 380));
 
         pack();
@@ -238,6 +287,7 @@ public class TelaB extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JFormattedTextField tdfCPF;

@@ -69,6 +69,7 @@ public class TelaT extends javax.swing.JDialog {
         tdfData = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         btnSair = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -136,8 +137,11 @@ public class TelaT extends javax.swing.JDialog {
         });
         getContentPane().add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 318, -1, -1));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Apresentação/Imagens/723.444.jpg"))); // NOI18N
-        jLabel8.setText("jLabel8");
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Apresentação/Imagens/download (1).png"))); // NOI18N
+        jLabel9.setToolTipText("");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, -1, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Apresentação/Imagens/Plano de Fundo.jpg"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 360));
 
         pack();
@@ -207,6 +211,7 @@ public class TelaT extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField tdfCPF;
     private javax.swing.JTextField tdfData;
     private javax.swing.JTextField tdfIdade;

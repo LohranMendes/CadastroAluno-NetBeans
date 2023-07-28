@@ -60,7 +60,7 @@ public class TelaV extends javax.swing.JDialog {
         getContentPane().add(tdfBarra, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 410, -1));
 
         btnSair.setFont(new java.awt.Font("Segoe UI Black", 3, 14)); // NOI18N
-        btnSair.setText("Sair");
+        btnSair.setText("Voltar");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
@@ -78,7 +78,7 @@ public class TelaV extends javax.swing.JDialog {
         });
         getContentPane().add(btnVerifica, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Apresentação/Imagens/723.444.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Apresentação/Imagens/Plano de Fundo.jpg"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 200));
 
         pack();
@@ -92,15 +92,53 @@ public class TelaV extends javax.swing.JDialog {
         ArrayList<Aluno> a = ca.retornarTodos();
         
         String s = tdfBarra.getText();
-        ca.setBusca(s);
-        String mat = ca.getBusca();
          
-          for (int i = 0; i < a.size() && a.get(i) != null; i++){
-              if(mat.equals(a.get(i).getMatricula())){
-                  JOptionPane.showMessageDialog(null, "Matricula já cadastrada.");
-              } else {
-                  JOptionPane.showMessageDialog(null, "Matricula não cadastrada.");
-              }
+        
+        if (a.isEmpty()) {
+            
+        } else {
+            for (int i = 0; i < a.size() && a.get(i) != null; i++) {
+                if (s.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Matricula inválida.");
+                    tdfBarra.setText("");
+                    tdfBarra.requestFocus();
+                    break;
+                } else {
+                    if (a.size() == 1) {
+                        if (a.get(0).getMatricula().equals(s)) {
+                            JOptionPane.showMessageDialog(null, "Matricula já cadastrada.");
+                            tdfBarra.setText("");
+                            tdfBarra.requestFocus();
+                            break;
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Matricula não cadastrada.");
+                            tdfBarra.setText("");
+                            tdfBarra.requestFocus();
+                            break;
+                        }
+                    }
+                    if (a.size() > 1) {
+                        if (a.get(0).getMatricula().equals(s)) {
+                            JOptionPane.showMessageDialog(null, "Matricula já cadastrada.");
+                            tdfBarra.setText("");
+                            tdfBarra.requestFocus();
+                            break;
+                        } else {
+                            if (ca.matriculaD(s, ca)) {
+                                JOptionPane.showMessageDialog(null, "Matricula já cadastrada.");
+                                tdfBarra.setText("");
+                                tdfBarra.requestFocus();
+                                break;
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Matricula não cadastrada.");
+                                tdfBarra.setText("");
+                                tdfBarra.requestFocus();
+                                break;
+                            }
+                        }
+                    }
+                }
+            }     
     }//GEN-LAST:event_btnVerificaActionPerformed
     }
     /**
